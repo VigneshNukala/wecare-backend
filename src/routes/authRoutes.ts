@@ -26,7 +26,7 @@ authRouter.post("/signin", async (req: Request, res: Response): Promise<void> =>
       return;
     }
     const user = await creds.findOne({ email, role }).exec();
-
+    console.log(user);
     if (!user || typeof user.password !== "string") {
       response.err(res, "User doesn't exist with this email and role", 400);
       return;
